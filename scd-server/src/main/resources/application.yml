@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${scd.datasource.driver-class-name}
+      url: jdbc:mysql://${scd.datasource.host}:${scd.datasource.port}/${scd.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${scd.datasource.username}
+      password: ${scd.datasource.password}
+  redis:
+    host: ${scd.redis.host}
+    port: ${scd.redis.port}
+    password: ${scd.redis.password}
+    database: ${scd.redis.database}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.smartcampus.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      smartcampus:
+        mapper: debug
+        service: info
+        controller: info
+
+scd:
+  jwt:
+    # 管理端：jwt 签名使用的密钥
+    admin-secret-key: scd-admin-hs256-secret
+    # 管理端：jwt 过期时间（毫秒）
+    admin-ttl: 7200000
+    # 管理端：前端传递过来的令牌名称
+    admin-token-name: token
+    # 用户端：jwt 签名使用的密钥
+    user-secret-key: scd-user-hs256-secret
+    # 用户端：jwt 过期时间（毫秒）
+    user-ttl: 7200000
+    # 用户端：前端传递过来的令牌名称
+    user-token-name: authentication
+  alioss:
+    endpoint: ${scd.alioss.endpoint}
+    access-key-id: ${scd.alioss.access-key-id}
+    access-key-secret: ${scd.alioss.access-key-secret}
+    bucket-name: ${scd.alioss.bucket-name}
+  wechat:
+    appid: ${scd.wechat.appid}
+    secret: ${scd.wechat.secret}
