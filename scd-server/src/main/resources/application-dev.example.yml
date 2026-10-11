@@ -1,0 +1,28 @@
+scd:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: smart_campus_delivery
+    username: root
+    # TODO: 替换为你本地的 MySQL 密码
+    password: your_mysql_password
+
+  redis:
+    host: localhost
+    port: 6379
+    # 无密码留空即可
+    password:
+    database: 0
+
+  alioss:
+    # TODO: 替换为你自己的阿里云 OSS 配置（用于文件上传）
+    bucket-name: your_bucket_name
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: your_access_key_id
+    access-key-secret: your_access_key_secret
+
+  wechat:
+    # TODO: 替换为你自己的微信小程序 appid / secret（用于微信登录）
+    appid: your_wx_appid
+    secret: your_wx_secret
