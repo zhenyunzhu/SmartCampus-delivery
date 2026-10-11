@@ -1,0 +1,56 @@
+# ==========================================================
+#  Smart-Campus-Delivery - Git 忽略规则
+# ==========================================================
+
+# ---------- Java / Maven 构建产物 ----------
+target/
+build/
+out/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+dependency-reduced-pom.xml
+
+# ---------- 日志 ----------
+*.log
+logs/
+log/
+*.log.gz
+
+# ---------- IDE ----------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# ---------- 操作系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- 敏感配置（数据库密码 / 阿里云 OSS AK / 微信支付证书等） ----------
+# 请参考 application-dev.example.yml 在本地自行创建 application-dev.yml，切勿提交真实凭据
+**/application-dev.yml
+**/application-local.yml
+**/application-local.yaml
+**/application-local.properties
+*.local
+.env
+.env.*
+*.pem
+*.p12
+*.jks
+
+# ---------- 临时文件 ----------
+*.tmp
+*.bak
+*.swp
+*~
